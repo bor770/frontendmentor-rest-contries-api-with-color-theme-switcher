@@ -1,0 +1,12 @@
+.mobile {
+  padding-inline: 1rem;
+}
+
+.mobile h1 {
+  font-size: 0.87rem;
+  line-height: 142.86%;
+}
+
+.mobile .mode {
+  font-size: 0.75rem;
+}

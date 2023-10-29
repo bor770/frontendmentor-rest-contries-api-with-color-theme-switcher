@@ -1,13 +1,28 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { LetDirective } from '@ngrx/component';
+
+import { BaseComponent } from './shared/base/base.component';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
+  imports: [
+    CommonModule,
+    LetDirective,
+    RouterOutlet,
+    BaseComponent,
+    HeaderComponent,
+  ],
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  styleUrls: [
+    './styles/app.component.css',
+    `./styles/mobile.app.component.css`,
+    `./styles/desktop.app.component.css`,
+    `./styles/dark.app.component.css`,
+    `./styles/light.app.component.css`,
+  ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'rest-countries-api-with-color-theme-switcher';
-}
+export class AppComponent extends BaseComponent {}
