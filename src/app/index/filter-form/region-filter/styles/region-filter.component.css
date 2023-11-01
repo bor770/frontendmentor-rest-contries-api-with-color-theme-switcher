@@ -1,0 +1,14 @@
+button {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  width: 12.5rem;
+}

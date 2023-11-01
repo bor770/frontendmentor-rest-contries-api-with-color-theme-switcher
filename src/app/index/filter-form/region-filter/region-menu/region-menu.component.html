@@ -7,7 +7,11 @@
   [ngClass]="[observables.scheme, observables.width]"
 >
   <ul>
-    <li cdkMenuItemRadio *ngFor="let region of observables.regions">
+    <li
+      *ngFor="let region of observables.regions"
+      cdkMenuItemRadio
+      (cdkMenuItemTriggered)="onSelect(region)"
+    >
       {{ region }}
     </li>
   </ul>

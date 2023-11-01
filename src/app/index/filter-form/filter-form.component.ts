@@ -1,19 +1,17 @@
-import { CdkMenuModule } from '@angular/cdk/menu';
-import { ConnectedPosition } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LetDirective } from '@ngrx/component';
 
 import { BaseComponent } from '../../shared/base/base.component';
-import { RegionMenuComponent } from './region-menu/region-menu.component';
+import { RegionFilterComponent } from './region-filter/region-filter.component';
 
 @Component({
   imports: [
     CommonModule,
-    CdkMenuModule,
     LetDirective,
-    BaseComponent,
-    RegionMenuComponent,
+    ReactiveFormsModule,
+    RegionFilterComponent,
   ],
   selector: 'app-filter-form',
   standalone: true,
@@ -26,18 +24,19 @@ import { RegionMenuComponent } from './region-menu/region-menu.component';
   ],
   templateUrl: './filter-form.component.html',
 })
-export class FilterFormComponent extends BaseComponent {
-  position: ConnectedPosition[] = [
-    {
-      offsetY: 4,
-      originX: `start`,
-      originY: `bottom`,
-      overlayX: `start`,
-      overlayY: `top`,
-    },
-  ];
+export class FilterFormComponent extends BaseComponent implements OnInit {
+  form: FormGroup;
 
-  imgSrc(icon: string, width: string, scheme: string) {
-    return `../../../assets/images/${icon}-${width}-${scheme}.svg`;
+  ngOnInit(): void {
+    super.ngOnInit();
+
+    this.form = new FormGroup({
+      region: new FormControl(),
+      search: new FormControl(),
+    });
+  }
+
+  imgSrc(width: string, scheme: string) {
+    return `../../../assets/images/search-${width}-${scheme}.svg`;
   }
 }

@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { LetDirective } from '@ngrx/component';
 import { Observable } from 'rxjs';
 
-import { BaseComponent } from '../../../shared/base/base.component';
-import * as IndexSelectors from '../../store/index.selectors';
+import { BaseComponent } from '../../../../shared/base/base.component';
+import * as IndexSelectors from '../../../store/index.selectors';
 
 @Component({
   imports: [CommonModule, CdkMenuModule, LetDirective],
@@ -27,5 +27,9 @@ export class RegionMenuComponent extends BaseComponent implements OnInit {
     super.ngOnInit();
 
     this.regions$ = this.store.select(IndexSelectors.selectRegions);
+  }
+
+  onSelect(region: string) {
+    console.log(region);
   }
 }
