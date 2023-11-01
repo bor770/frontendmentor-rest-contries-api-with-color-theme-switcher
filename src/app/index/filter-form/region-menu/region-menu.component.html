@@ -1,0 +1,14 @@
+<div
+  *ngrxLet="{
+    regions: regions$,
+    scheme: scheme$,
+    width: width$
+  } as observables"
+  [ngClass]="[observables.scheme, observables.width]"
+>
+  <ul>
+    <li cdkMenuItemRadio *ngFor="let region of observables.regions">
+      {{ region }}
+    </li>
+  </ul>
+</div>

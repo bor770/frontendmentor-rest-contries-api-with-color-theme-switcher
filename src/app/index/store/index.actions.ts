@@ -1,8 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 
-import * as fromIndex from './index.reducer';
+import { AllCountriesData } from '../index.model';
 
 export const set = createAction(
   `[Index] Set`,
-  props<{ data: fromIndex.State }>()
+  props<{ data: AllCountriesData }>()
 );

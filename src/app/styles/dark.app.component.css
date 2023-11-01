@@ -1,3 +1,7 @@
 .dark {
   color: #fff;
 }
+
+.dark main {
+  background: #202c36;
+}

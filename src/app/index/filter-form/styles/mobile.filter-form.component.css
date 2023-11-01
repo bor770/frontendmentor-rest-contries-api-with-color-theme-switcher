@@ -1,0 +1,23 @@
+.mobile {
+  font-size: 0.75rem;
+}
+
+.mobile .control {
+  height: 3rem;
+}
+
+.mobile .search {
+  margin-bottom: 2.5rem;
+}
+
+.mobile .search-icon {
+  margin-right: 1.62rem;
+}
+
+.mobile button {
+  padding-right: 1.19rem;
+}
+
+.mobile .region {
+  line-height: 166.67%;
+}

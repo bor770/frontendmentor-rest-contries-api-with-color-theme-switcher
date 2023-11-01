@@ -1,0 +1,7 @@
+.dark .control {
+  background: #2b3844;
+}
+
+.dark input::placeholder {
+  color: #fff;
+}

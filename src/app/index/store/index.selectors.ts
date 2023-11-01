@@ -1,5 +1,11 @@
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import * as fromIndex from './index.reducer';
 
-export const selectState = createFeatureSelector<fromIndex.State>(`index`);
+const selectState = createFeatureSelector<fromIndex.State>(`index`);
+
+export const selectData = createSelector(selectState, (state) => state.data);
+
+export const selectRegions = createSelector(selectData, (data) =>
+  Array.from(new Set(data.map((country) => country.region)).values()).sort()
+);

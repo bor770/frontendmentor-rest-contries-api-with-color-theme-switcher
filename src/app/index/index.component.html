@@ -1,1 +1,7 @@
-<p>index works!</p>
+<div
+  *ngrxLet="{ scheme: scheme$, width: width$ } as observables"
+  [ngClass]="[observables.scheme, observables.width]"
+>
+  <app-filter-form></app-filter-form>
+  <app-countries></app-countries>
+</div>
