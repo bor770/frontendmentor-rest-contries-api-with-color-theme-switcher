@@ -1,11 +1,13 @@
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { ConnectedPosition } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LetDirective } from '@ngrx/component';
+import { Observable } from 'rxjs';
 
 import { BaseComponent } from '../../../shared/base/base.component';
 import { RegionMenuComponent } from './region-menu/region-menu.component';
+import * as IndexSelectors from '../../store/index.selectors';
 
 @Component({
   imports: [CommonModule, CdkMenuModule, LetDirective, RegionMenuComponent],
@@ -20,7 +22,8 @@ import { RegionMenuComponent } from './region-menu/region-menu.component';
   ],
   templateUrl: './region-filter.component.html',
 })
-export class RegionFilterComponent extends BaseComponent {
+export class RegionFilterComponent extends BaseComponent implements OnInit {
+  filterRegion$: Observable<string>;
   position: ConnectedPosition[] = [
     {
       offsetY: 4,
@@ -30,6 +33,16 @@ export class RegionFilterComponent extends BaseComponent {
       overlayY: `top`,
     },
   ];
+
+  ngOnInit(): void {
+    super.ngOnInit();
+
+    this.filterRegion$ = this.store.select(IndexSelectors.selectFilterRegion);
+  }
+
+  caption(region: string) {
+    return region || `Filter by Region`;
+  }
 
   imgSrc(icon: string, width: string, scheme: string) {
     return `../../../assets/images/${icon}-${width}-${scheme}.svg`;

@@ -5,6 +5,7 @@ import { LetDirective } from '@ngrx/component';
 import { Observable } from 'rxjs';
 
 import { BaseComponent } from '../../../../shared/base/base.component';
+import * as IndexActions from '../../../store/index.actions';
 import * as IndexSelectors from '../../../store/index.selectors';
 
 @Component({
@@ -30,6 +31,8 @@ export class RegionMenuComponent extends BaseComponent implements OnInit {
   }
 
   onSelect(region: string) {
-    console.log(region);
+    this.store.dispatch(
+      IndexActions.setFilter({ filter: { field: `region`, value: region } })
+    );
   }
 }

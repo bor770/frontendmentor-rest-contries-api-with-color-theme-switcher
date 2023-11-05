@@ -2,19 +2,17 @@
   *ngrxLet="{ scheme: scheme$, width: width$ } as observables"
   [ngClass]="[observables.scheme, observables.width]"
 >
-  <form [formGroup]="form">
-    <div class="search">
-      <img
-        alt="Search Icon"
-        class="search-icon"
-        [src]="imgSrc(observables.width, observables.scheme)"
-      />
-      <input
-        formControlName="search"
-        placeholder="Search for a country…"
-        type="text"
-      />
-    </div>
-    <app-region-filter></app-region-filter>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <img
+      alt="Search Icon"
+      class="search-icon"
+      [src]="imgSrc(observables.width, observables.scheme)"
+    />
+    <input
+      formControlName="name"
+      placeholder="Search for a country…"
+      type="text"
+    />
   </form>
+  <app-region-filter></app-region-filter>
 </div>

@@ -1,8 +1,13 @@
 import { createAction, props } from '@ngrx/store';
 
-import { AllCountriesData } from '../index.model';
+import { CountriesData, Filter } from '../index.model';
 
-export const set = createAction(
+export const setData = createAction(
   `[Index] Set`,
-  props<{ data: AllCountriesData }>()
+  props<{ data: CountriesData }>()
+);
+
+export const setFilter = createAction(
+  `[Index] Set Filter`,
+  props<{ filter: Filter }>()
 );

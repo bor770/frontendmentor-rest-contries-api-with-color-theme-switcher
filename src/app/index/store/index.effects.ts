@@ -10,23 +10,21 @@ const API_URL = `https://restcountries.com/v3.1/all?fields=capital,flags,name,po
 
 @Injectable()
 export class IndexEffects {
-  fetch = createEffect(() => {
+  fetchAll = createEffect(() => {
     return this.actions$.pipe(
       ofType(rootEffectsInit),
       switchMap(() =>
-        this.http.get<ApiResponse>(API_URL).pipe(
-          map((response) => {
-            response.sort((a, b) => (a.name.common < b.name.common ? -1 : 1));
-
-            return IndexActions.set({
+        this.http.get<ApiResponse>(`${API_URL}`).pipe(
+          map((response) =>
+            IndexActions.setData({
               data: response.map((country) => ({
                 ...country,
                 capital: country.capital[0],
                 flag: country.flags,
                 name: country.name.common,
               })),
-            });
-          }),
+            })
+          ),
           catchError(() => of())
         )
       )

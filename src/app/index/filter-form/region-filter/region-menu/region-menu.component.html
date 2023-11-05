@@ -6,7 +6,7 @@
   } as observables"
   [ngClass]="[observables.scheme, observables.width]"
 >
-  <ul>
+  <ul cdkMenu>
     <li
       *ngFor="let region of observables.regions"
       cdkMenuItemRadio

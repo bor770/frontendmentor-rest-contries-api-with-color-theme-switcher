@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LetDirective } from '@ngrx/component';
+import { Subscription, filter } from 'rxjs';
 
 import { BaseComponent } from '../../shared/base/base.component';
 import { RegionFilterComponent } from './region-filter/region-filter.component';
+import * as IndexActions from '../store/index.actions';
+import * as IndexSelectors from '../store/index.selectors';
 
 @Component({
   imports: [
@@ -24,19 +27,43 @@ import { RegionFilterComponent } from './region-filter/region-filter.component';
   ],
   templateUrl: './filter-form.component.html',
 })
-export class FilterFormComponent extends BaseComponent implements OnInit {
+export class FilterFormComponent
+  extends BaseComponent
+  implements OnDestroy, OnInit
+{
   form: FormGroup;
+  storeSubscription: Subscription;
 
   ngOnInit(): void {
     super.ngOnInit();
 
-    this.form = new FormGroup({
-      region: new FormControl(),
-      search: new FormControl(),
-    });
+    this.form = new FormGroup({ name: new FormControl() });
+
+    this.storeSubscription = this.store
+      .select(IndexSelectors.selectFilter)
+      .pipe(filter((filter) => filter?.field === `region`))
+      .subscribe(() => {
+        this.form.reset();
+      });
   }
 
   imgSrc(width: string, scheme: string) {
     return `../../../assets/images/search-${width}-${scheme}.svg`;
+  }
+
+  onSubmit() {
+    const form = this.form;
+
+    if (form.valid) {
+      this.store.dispatch(
+        IndexActions.setFilter({
+          filter: { field: `name`, value: form.value.name },
+        })
+      );
+    }
+  }
+
+  ngOnDestroy() {
+    this.storeSubscription.unsubscribe();
   }
 }

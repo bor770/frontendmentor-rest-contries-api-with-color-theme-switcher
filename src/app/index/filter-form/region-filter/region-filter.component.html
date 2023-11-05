@@ -1,9 +1,13 @@
 <div
-  *ngrxLet="{ scheme: scheme$, width: width$ } as observables"
+  *ngrxLet="{
+    filterRegion: filterRegion$,
+    scheme: scheme$,
+    width: width$
+  } as observables"
   [ngClass]="[observables.scheme, observables.width]"
 >
   <button [cdkMenuPosition]="position" [cdkMenuTriggerFor]="menu">
-    <span class="region">Filter by Region</span>
+    <span class="region">{{ caption(observables.filterRegion) }}</span>
     <img
       alt="Select Icon"
       [src]="imgSrc('select', observables.width, observables.scheme)"
