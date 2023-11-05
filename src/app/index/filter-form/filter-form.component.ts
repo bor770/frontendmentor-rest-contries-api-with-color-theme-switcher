@@ -52,15 +52,11 @@ export class FilterFormComponent
   }
 
   onSubmit() {
-    const form = this.form;
-
-    if (form.valid) {
-      this.store.dispatch(
-        IndexActions.setFilter({
-          filter: { field: `name`, value: form.value.name },
-        })
-      );
-    }
+    this.store.dispatch(
+      IndexActions.setFilter({
+        filter: { field: `name`, value: this.form.value.name },
+      })
+    );
   }
 
   ngOnDestroy() {
