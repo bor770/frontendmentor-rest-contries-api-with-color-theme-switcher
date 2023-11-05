@@ -1,1 +1,33 @@
-<p>countries works!</p>
+<div
+  *ngrxLet="{
+    countries: countries$,
+    scheme: scheme$,
+    width: width$
+  } as observables"
+  [ngClass]="[observables.scheme, observables.width]"
+>
+  <ul class="countries">
+    <li *ngFor="let country of observables.countries">
+      <article>
+        <img [alt]="country.flag.alt" [src]="country.flag.svg" />
+        <div class="data">
+          <h2>{{ country.name }}</h2>
+          <ul class="properties">
+            <li>
+              <span class="field">Population: </span>
+              <span>{{ country.population | number }}</span>
+            </li>
+            <li>
+              <span class="field">Region: </span>
+              <span>{{ country.region }}</span>
+            </li>
+            <li>
+              <span class="field">Capital: </span>
+              <span>{{ country.capital }}</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </li>
+  </ul>
+</div>

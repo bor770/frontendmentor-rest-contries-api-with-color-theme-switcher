@@ -19,7 +19,7 @@ export const selectFiltered = createSelector(
   selectData,
   selectFilter,
   (data, filter) =>
-    data.filter((country) => {
+    data?.filter((country) => {
       const value = filter?.value;
 
       switch (filter?.field) {

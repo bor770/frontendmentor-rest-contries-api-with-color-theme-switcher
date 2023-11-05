@@ -2,6 +2,10 @@
   *ngrxLet="{ scheme: scheme$, width: width$ } as observables"
   [ngClass]="[observables.scheme, observables.width]"
 >
-  <app-filter-form></app-filter-form>
-  <app-countries></app-countries>
+  <section class="filter">
+    <app-filter-form></app-filter-form>
+  </section>
+  <article class="countries">
+    <app-countries></app-countries>
+  </article>
 </div>
