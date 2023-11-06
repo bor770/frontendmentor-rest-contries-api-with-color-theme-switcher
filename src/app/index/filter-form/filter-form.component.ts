@@ -59,7 +59,18 @@ export class FilterFormComponent
     );
   }
 
-  ngOnDestroy() {
+  onInput(event: InputEvent) {
+    this.store.dispatch(
+      IndexActions.setFilter({
+        filter: {
+          field: `name`,
+          value: (<HTMLInputElement>event.target).value,
+        },
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
     this.storeSubscription.unsubscribe();
   }
 }

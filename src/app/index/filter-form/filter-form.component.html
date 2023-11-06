@@ -12,6 +12,7 @@
       formControlName="name"
       placeholder="Search for a country…"
       type="text"
+      (input)="onInput($event)"
     />
   </form>
   <app-region-filter></app-region-filter>
