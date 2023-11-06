@@ -1,0 +1,7 @@
+.light form {
+  background: #fff;
+}
+
+.light input::placeholder {
+  color: #c4c4c4;
+}

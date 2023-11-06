@@ -1,3 +1,7 @@
 .light {
   color: #111517;
 }
+
+.light main {
+  background: #fafafa;
+}
