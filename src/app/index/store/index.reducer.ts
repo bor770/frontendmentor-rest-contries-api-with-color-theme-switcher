@@ -1,21 +1,16 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { CountriesData, Filter } from '../index.model';
+import { Filter } from '../index.model';
 import * as IndexActions from './index.actions';
 
-export type State = { data: CountriesData; filter: Filter };
+export interface State {
+  filter: Filter;
+}
 
-const initialState: State = { data: null, filter: null };
+const initialState: State = { filter: null };
 
 export const reducer = createReducer(
   initialState,
-  on(IndexActions.setData, (state, action): State => {
-    const data = [...action.data];
-
-    data.sort((a, b) => (a.name < b.name ? -1 : 1));
-
-    return { ...state, data };
-  }),
   on(IndexActions.setFilter, (state, action): State => {
     const filter = action.filter;
     const field = filter.field;
@@ -34,6 +29,6 @@ export const reducer = createReducer(
         newFilter = null;
     }
 
-    return { ...state, filter: newFilter };
+    return { ...state, filter: { ...newFilter } };
   })
 );

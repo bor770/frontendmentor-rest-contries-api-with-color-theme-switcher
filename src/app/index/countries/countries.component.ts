@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { LetDirective } from '@ngrx/component';
 import { Observable } from 'rxjs';
 
 import { BaseComponent } from '../../shared/base/base.component';
-import { CountriesData } from '../index.model';
+import { CountriesData } from '../../shared/data/data.model';
 import * as IndexSelectors from '../store/index.selectors';
 
 @Component({
-  imports: [CommonModule, LetDirective],
+  imports: [CommonModule, LetDirective, RouterModule],
   selector: 'app-countries',
   standalone: true,
   styleUrls: [

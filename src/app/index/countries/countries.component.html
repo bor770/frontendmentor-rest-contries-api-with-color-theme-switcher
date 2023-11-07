@@ -8,7 +8,7 @@
 >
   <ul class="countries">
     <li *ngFor="let country of observables.countries">
-      <article>
+      <a [routerLink]="country.name">
         <img [alt]="country.flag.alt" [src]="country.flag.svg" />
         <div class="data">
           <h2>{{ country.name }}</h2>
@@ -27,7 +27,7 @@
             </li>
           </ul>
         </div>
-      </article>
+      </a>
     </li>
   </ul>
 </div>

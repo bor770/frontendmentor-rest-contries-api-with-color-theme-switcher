@@ -1,10 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
+import * as DataSelectors from '../../shared/data/store/data.selectors';
 import * as fromIndex from './index.reducer';
 
 const selectState = createFeatureSelector<fromIndex.State>(`index`);
-
-const selectData = createSelector(selectState, (state) => state.data);
 
 export const selectFilter = createSelector(
   selectState,
@@ -16,7 +15,7 @@ export const selectFilterRegion = createSelector(selectFilter, (filter) =>
 );
 
 export const selectFiltered = createSelector(
-  selectData,
+  DataSelectors.selectState,
   selectFilter,
   (data, filter) =>
     data?.filter((country) => {
@@ -31,8 +30,4 @@ export const selectFiltered = createSelector(
           return true;
       }
     })
-);
-
-export const selectRegions = createSelector(selectData, (data) =>
-  Array.from(new Set(data.map((country) => country.region)).values()).sort()
 );

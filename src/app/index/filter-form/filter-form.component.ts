@@ -51,14 +51,6 @@ export class FilterFormComponent
     return `../../../assets/images/search-${width}-${scheme}.svg`;
   }
 
-  onSubmit() {
-    this.store.dispatch(
-      IndexActions.setFilter({
-        filter: { field: `name`, value: this.form.value.name },
-      })
-    );
-  }
-
   onInput(event: InputEvent) {
     this.store.dispatch(
       IndexActions.setFilter({
@@ -68,6 +60,16 @@ export class FilterFormComponent
         },
       })
     );
+  }
+
+  onSubmit() {
+    if (!this.form.value.name) {
+      this.store.dispatch(
+        IndexActions.setFilter({
+          filter: { field: `name`, value: `` },
+        })
+      );
+    }
   }
 
   ngOnDestroy(): void {
