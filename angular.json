@@ -88,10 +88,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rest-countries-api-with-color-theme-switcher:build:production"
+              "buildTarget": "rest-countries-api-with-color-theme-switcher:build:production"
             },
             "development": {
-              "browserTarget": "rest-countries-api-with-color-theme-switcher:build:development"
+              "buildTarget": "rest-countries-api-with-color-theme-switcher:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +99,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rest-countries-api-with-color-theme-switcher:build"
+            "buildTarget": "rest-countries-api-with-color-theme-switcher:build"
           }
         },
         "test": {
