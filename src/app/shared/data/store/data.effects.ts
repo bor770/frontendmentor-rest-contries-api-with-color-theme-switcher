@@ -36,5 +36,36 @@ export class DataEffects {
     );
   });
 
+  fetchAdditional = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(DataActions.fetchAdditional),
+      switchMap(() =>
+        this.http
+          .get<ApiResponse>(
+            `${API_URL}?fields=borders,cca3,currencies,languages,subregion,tld`
+          )
+          .pipe(
+            map((response) =>
+              DataActions.setAdditional({
+                data: response.map((country) => ({
+                  ...country,
+                  capital: undefined,
+                  currencies: Object.values(country.currencies).map(
+                    (currency) => currency.name
+                  ),
+                  languages: Object.values(country.languages),
+                  name: country.name.common,
+                  nativeNames: Object.values(country.name.nativeName).map(
+                    (name) => name.common
+                  ),
+                })),
+              })
+            )
+          )
+      )
+    );
+  });
+
+
   constructor(private actions$: Actions, private http: HttpClient) {}
 }

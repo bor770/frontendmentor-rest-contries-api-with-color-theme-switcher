@@ -17,7 +17,7 @@ export type CountriesData = {
   capital: string;
   cca3: string;
   currencies: string[];
-  flag: { alt: string; svg: string };
+  flag?: { alt: string; svg: string };
   languages: string[];
   name: string;
   nativeNames?: string[];
