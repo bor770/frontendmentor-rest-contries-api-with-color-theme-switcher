@@ -38,11 +38,11 @@ export class DataEffects {
 
   fetchAdditional = createEffect(() => {
     return this.actions$.pipe(
-      ofType(DataActions.fetchAdditional),
+      ofType(DataActions.setInitial),
       switchMap(() =>
         this.http
           .get<ApiResponse>(
-            `${API_URL}?fields=borders,cca3,currencies,languages,subregion,tld`
+            `${API_URL}?fields=borders,cca3,currencies,languages,name,subregion,tld`
           )
           .pipe(
             map((response) =>
@@ -65,7 +65,6 @@ export class DataEffects {
       )
     );
   });
-
 
   constructor(private actions$: Actions, private http: HttpClient) {}
 }
