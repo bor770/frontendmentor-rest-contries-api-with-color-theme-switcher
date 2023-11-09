@@ -9,7 +9,12 @@
   <ul class="countries">
     <li *ngFor="let country of observables.countries">
       <a [routerLink]="country.name">
-        <img [alt]="country.flag.alt" [src]="country.flag.svg" />
+        <img
+          height="160"
+          width="264"
+          [alt]="country.flag.alt"
+          [src]="country.flag.svg"
+        />
         <div class="data">
           <h2>{{ country.name }}</h2>
           <ul class="properties">
