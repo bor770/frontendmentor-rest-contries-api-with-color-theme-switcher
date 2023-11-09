@@ -1,12 +1,13 @@
 import { IMAGE_CONFIG } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, isDevMode } from '@angular/core';
-import { provideEffects } from '@ngrx/effects';
 import {
   PreloadAllModules,
   provideRouter,
   withPreloading,
 } from '@angular/router';
+import { provideEffects } from '@ngrx/effects';
+import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideEffects(DataEffects, LayoutEffects),
     provideHttpClient(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideRouterStore(),
     provideStore(rootReducer),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     { provide: IMAGE_CONFIG, useValue: { disableImageSizeWarning: true } },
