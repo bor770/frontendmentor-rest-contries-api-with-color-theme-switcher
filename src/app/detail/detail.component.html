@@ -9,26 +9,26 @@
     />
     Back
   </a>
-  <ng-container *ngrxLet="observables.data as data">
+  <div *ngrxLet="observables.data as data" class="container">
     <img alt="Flag" [src]="data.flag.svg" />
-    <h1>{{ data.name }}</h1>
-    <dl>
-      <div
-        *ngFor="let field of displayedFields"
-        class="field"
-        [ngClass]="field"
-      >
-        <dt>{{ field.term }}</dt>
-        <dd>{{ transform(field.type, data[field.key]) }}</dd>
+    <div class="info">
+      <h1>{{ data.name }}</h1>
+      <div *ngFor="let group of displayedFields" class="group">
+        <dl>
+          <div *ngFor="let field of group" class="field">
+            <dt>{{ field.term }}</dt>
+            <dd>{{ transform(field.type, data[field.key]) }}</dd>
+          </div>
+        </dl>
       </div>
-      <div class="border-countries field">
-        <dt>Border Countries</dt>
-        <dd>
-          <a *ngFor="let border of data.borders" [routerLink]="['/', border]">{{
-            border
-          }}</a>
-        </dd>
+      <div class="border-countries">
+        <span class="term">Border Countries</span>
+        <ul>
+          <li *ngFor="let border of data.borders">
+            <a [routerLink]="['/', border]">{{ border }}</a>
+          </li>
+        </ul>
       </div>
-    </dl>
-  </ng-container>
+    </div>
+  </div>
 </div>

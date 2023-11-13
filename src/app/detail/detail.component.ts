@@ -24,15 +24,19 @@ import * as DetailSelectors from './store/detail.selectors';
 })
 export class DetailComponent extends BaseComponent implements OnInit {
   data$: Observable<CountryData>;
-  displayedFields: DisplayedField[] = [
-    { key: `nativeNames`, term: `Native Name`, type: `array` },
-    { key: `population`, term: `Population`, type: `number` },
-    { key: `region`, term: `Region` },
-    { key: `subregion`, term: `Sub Region` },
-    { key: `capital`, term: `Capital` },
-    { key: `tld`, term: `Top Level Domains`, type: `array` },
-    { key: `currencies`, term: `Currencies`, type: `array` },
-    { key: `languages`, term: `Languages`, type: `array` },
+  displayedFields: DisplayedField[][] = [
+    [
+      { key: `nativeNames`, term: `Native Name`, type: `array` },
+      { key: `population`, term: `Population`, type: `number` },
+      { key: `region`, term: `Region` },
+      { key: `subregion`, term: `Sub Region` },
+      { key: `capital`, term: `Capital` },
+    ],
+    [
+      { key: `tld`, term: `Top Level Domains`, type: `array` },
+      { key: `currencies`, term: `Currencies`, type: `array` },
+      { key: `languages`, term: `Languages`, type: `array` },
+    ],
   ];
 
   ngOnInit(): void {
