@@ -1,3 +1,4 @@
+import { RouterReducerState, routerReducer } from '@ngrx/router-store';
 import { ActionReducerMap } from '@ngrx/store';
 
 import * as fromData from '../shared/data/store/data.reducer';
@@ -9,6 +10,7 @@ export interface RootState {
   data: fromData.State;
   index: fromIndex.State;
   layout: fromLayout.State;
+  router: RouterReducerState;
   scheme: fromScheme.State;
 }
 
@@ -16,5 +18,6 @@ export const rootReducer: ActionReducerMap<RootState> = {
   data: fromData.reducer,
   index: fromIndex.reducer,
   layout: fromLayout.reducer,
+  router: routerReducer,
   scheme: fromScheme.reducer,
 };

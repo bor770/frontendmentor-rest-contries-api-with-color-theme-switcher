@@ -12,12 +12,28 @@ export const reducer = createReducer(
   on(
     DataActions.setAdditional,
     (state, action): State =>
-      state.map((country) => ({
-        ...country,
-        ...action.data.find(
-          (countryFromAction) => country.name === countryFromAction.name
-        ),
-      }))
+      state.map((stateData) => {
+        const data = action.data;
+
+        const actionData = data.find(
+          (dataFromAction) => stateData.name === dataFromAction.name
+        );
+
+        return {
+          ...stateData,
+          ...actionData,
+          borders: actionData.borders
+            .map(
+              (border) => data.find((country) => country.cca3 === border).name
+            )
+            .sort(),
+          capital: stateData.capital,
+          currencies: [...actionData.currencies].sort(),
+          languages: [...actionData.languages].sort(),
+          nativeNames: [...actionData.nativeNames].sort(),
+          tld: [...actionData.tld].sort(),
+        };
+      })
   ),
   on(
     DataActions.setInitial,

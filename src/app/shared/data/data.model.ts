@@ -12,7 +12,7 @@ export type ApiResponse = {
   tld: string[];
 }[];
 
-export type CountriesData = {
+export type CountryData = {
   borders: string[];
   capital: string;
   cca3: string;
@@ -25,4 +25,6 @@ export type CountriesData = {
   region: string;
   subregion: string;
   tld: string[];
-}[];
+};
+
+export type CountriesData = CountryData[];

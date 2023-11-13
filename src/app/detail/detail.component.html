@@ -1,1 +1,34 @@
-<p>detail works!</p>
+<div
+  *ngrxLet="{ data: data$, scheme: scheme$, width: width$ } as observables"
+  [ngClass]="[observables.scheme, observables.width]"
+>
+  <a routerLink="/">
+    <img
+      alt="Back Icon"
+      [src]="imgSrc(observables.width, observables.scheme)"
+    />
+    Back
+  </a>
+  <ng-container *ngrxLet="observables.data as data">
+    <img alt="Flag" [src]="data.flag.svg" />
+    <h1>{{ data.name }}</h1>
+    <dl>
+      <div
+        *ngFor="let field of displayedFields"
+        class="field"
+        [ngClass]="field"
+      >
+        <dt>{{ field.term }}</dt>
+        <dd>{{ transform(field.type, data[field.key]) }}</dd>
+      </div>
+      <div class="border-countries field">
+        <dt>Border Countries</dt>
+        <dd>
+          <a *ngFor="let border of data.borders" [routerLink]="['/', border]">{{
+            border
+          }}</a>
+        </dd>
+      </div>
+    </dl>
+  </ng-container>
+</div>
