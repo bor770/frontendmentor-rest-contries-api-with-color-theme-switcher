@@ -18,8 +18,6 @@ import { HeaderComponent } from './header/header.component';
   standalone: true,
   styleUrls: [
     './styles/app.component.css',
-    `./styles/mobile.app.component.css`,
-    `./styles/desktop.app.component.css`,
     `./styles/dark.app.component.css`,
     `./styles/light.app.component.css`,
   ],

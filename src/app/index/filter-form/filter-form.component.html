@@ -1,5 +1,6 @@
 <div
   *ngrxLet="{ scheme: scheme$, width: width$ } as observables"
+  class="container"
   [ngClass]="[observables.scheme, observables.width]"
 >
   <form [formGroup]="form" (ngSubmit)="onSubmit()">

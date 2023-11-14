@@ -1,0 +1,17 @@
+.desktop {
+  font-size: 0.87rem;
+}
+
+.desktop.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desktop form {
+  height: 3.5rem;
+  width: 30rem;
+}
+
+.desktop .search-icon {
+  margin-right: 1.5rem;
+}

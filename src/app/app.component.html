@@ -1,7 +1,4 @@
-<div
-  *ngrxLet="{ scheme: scheme$, width: width$ } as observables"
-  [ngClass]="[observables.scheme, observables.width]"
->
+<div *ngrxLet="scheme$ as scheme" [ngClass]="scheme">
   <header>
     <app-header></app-header>
   </header>

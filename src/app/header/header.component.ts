@@ -14,7 +14,6 @@ import * as SchemeActions from '../shared/scheme/store/scheme.actions';
     `./styles/mobile.header.component.css`,
     `./styles/desktop.header.component.css`,
     `./styles/dark.header.component.css`,
-    `./styles/light.header.component.css`,
   ],
   templateUrl: './header.component.html',
 })
