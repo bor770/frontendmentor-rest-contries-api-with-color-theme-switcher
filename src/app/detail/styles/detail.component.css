@@ -23,6 +23,7 @@ a {
 
 dt {
   font-weight: 600;
+  text-wrap: nowrap;
 }
 
 dt::after {
@@ -37,6 +38,7 @@ dd {
   display: block;
   font-weight: 600;
   line-height: 150%;
+  text-wrap: nowrap;
 }
 
 ul {
@@ -47,6 +49,7 @@ ul {
 }
 
 .border-country {
+  border-radius: 2px;
   font-weight: 300;
   height: 1.75rem;
   width: 6rem;

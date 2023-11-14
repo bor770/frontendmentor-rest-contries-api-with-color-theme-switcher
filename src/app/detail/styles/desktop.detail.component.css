@@ -1,0 +1,47 @@
+.desktop {
+  padding: 5rem 5.12rem 21.44rem 5rem;
+}
+
+.desktop .back-button {
+  border-radius: 6px;
+  height: 2.5rem;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  padding-inline: 2rem 2.44rem;
+  width: 8.5rem;
+}
+
+.desktop .container {
+  display: flex;
+  gap: 9.02rem;
+}
+
+.desktop .flag {
+  border-radius: 10px;
+  flex: none;
+  height: 25.06rem;
+  width: 35rem;
+}
+
+.desktop h1 {
+  font-size: 2rem;
+  margin-block: 2.44rem 1.44rem;
+}
+
+.desktop .groups {
+  gap: 7.31rem;
+  justify-content: space-between;
+  line-height: 200%;
+  margin-bottom: 4.25rem;
+}
+
+.desktop .border-countries {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.desktop .border-country {
+  font-size: 0.87rem;
+  justify-content: center;
+}
