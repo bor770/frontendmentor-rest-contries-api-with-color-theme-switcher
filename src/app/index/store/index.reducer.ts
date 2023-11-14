@@ -1,3 +1,4 @@
+import { routerNavigatedAction } from '@ngrx/router-store';
 import { createReducer, on } from '@ngrx/store';
 
 import { Filter } from '../index.model';
@@ -30,5 +31,6 @@ export const reducer = createReducer(
     }
 
     return { ...state, filter: { ...newFilter } };
-  })
+  }),
+  on(routerNavigatedAction, (state): State => ({ ...state, filter: null }))
 );
