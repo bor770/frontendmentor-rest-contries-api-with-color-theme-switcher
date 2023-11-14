@@ -1,0 +1,54 @@
+a {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  text-decoration: none;
+}
+
+.back-button {
+  box-shadow: 0px 0px 7px 0px #0000004a;
+}
+
+.flag {
+  display: block;
+}
+
+.groups {
+  display: flex;
+}
+
+.field {
+  display: flex;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dt::after {
+  content: ":\a0";
+}
+
+dd {
+  font-weight: 300;
+}
+
+.term {
+  display: block;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.border-country {
+  font-weight: 300;
+  height: 1.75rem;
+  width: 6rem;
+}
+

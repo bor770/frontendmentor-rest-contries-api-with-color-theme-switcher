@@ -33,7 +33,7 @@ export class DetailComponent extends BaseComponent implements OnInit {
       { key: `capital`, term: `Capital` },
     ],
     [
-      { key: `tld`, term: `Top Level Domains`, type: `array` },
+      { key: `tld`, term: `Top Level Domain`, type: `array` },
       { key: `currencies`, term: `Currencies`, type: `array` },
       { key: `languages`, term: `Languages`, type: `array` },
     ],
@@ -43,7 +43,6 @@ export class DetailComponent extends BaseComponent implements OnInit {
     super.ngOnInit();
 
     this.data$ = this.store.select(DetailSelectors.selectCountryData);
-    this.data$.subscribe(console.log);
   }
 
   imgSrc(width: string, scheme: string) {

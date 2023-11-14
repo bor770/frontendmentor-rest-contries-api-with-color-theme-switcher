@@ -1,0 +1,43 @@
+.mobile {
+  padding: 2.5rem 1.7rem 3.88rem 1.75rem;
+}
+
+.mobile a {
+  border-radius: 2px;
+  justify-content: center;
+}
+
+.mobile .back-button {
+  height: 2rem;
+  gap: 8px;
+  margin-bottom: 4rem;
+  width: 6.5rem;
+}
+
+.mobile .flag {
+  border-radius: 5.72px;
+  height: 14.31rem;
+  margin-bottom: 2.75rem;
+  width: 100%;
+}
+
+.mobile h1 {
+  font-size: 1.37rem;
+  margin-bottom: 1rem;
+}
+
+.mobile .groups {
+  flex-direction: column;
+  font-size: 0.87rem;
+  gap: 2rem;
+  line-height: 228.57%;
+  margin-bottom: 2rem;
+}
+
+.mobile .term {
+  margin-bottom: 1rem;
+}
+
+.mobile .border-country {
+  font-size: 0.75rem;
+}

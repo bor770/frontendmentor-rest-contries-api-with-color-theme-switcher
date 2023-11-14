@@ -2,7 +2,7 @@
   *ngrxLet="{ data: data$, scheme: scheme$, width: width$ } as observables"
   [ngClass]="[observables.scheme, observables.width]"
 >
-  <a routerLink="/">
+  <a class="back-button" routerLink="/">
     <img
       alt="Back Icon"
       [src]="imgSrc(observables.width, observables.scheme)"
@@ -10,11 +10,11 @@
     Back
   </a>
   <div *ngrxLet="observables.data as data" class="container">
-    <img alt="Flag" [src]="data.flag.svg" />
+    <img alt="Flag" class="flag" [src]="data.flag.svg" />
     <div class="info">
       <h1>{{ data.name }}</h1>
-      <div *ngFor="let group of displayedFields" class="group">
-        <dl>
+      <div class="groups">
+        <dl *ngFor="let group of displayedFields">
           <div *ngFor="let field of group" class="field">
             <dt>{{ field.term }}</dt>
             <dd>{{ transform(field.type, data[field.key]) }}</dd>
@@ -22,10 +22,12 @@
         </dl>
       </div>
       <div class="border-countries">
-        <span class="term">Border Countries</span>
+        <span class="term">Border Countries:</span>
         <ul>
           <li *ngFor="let border of data.borders">
-            <a [routerLink]="['/', border]">{{ border }}</a>
+            <a class="border-country" [routerLink]="['/', border]">{{
+              border
+            }}</a>
           </li>
         </ul>
       </div>
