@@ -1,0 +1,6 @@
+.desktop .countries {
+  display: grid;
+  grid-template-columns: repeat(4, 16.5rem);
+  justify-content: space-between;
+  row-gap: 4.69rem;
+}
